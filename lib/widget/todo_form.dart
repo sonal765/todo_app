@@ -22,13 +22,9 @@ class TodoFormWidget extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             buildTitle(),
-            const SizedBox(
-              height: 10,
-            ),
+            const SizedBox(height: 8),
             buildDesc(),
-            const SizedBox(
-              height: 32,
-            ),
+            const SizedBox(height: 16),
             buildButton(),
           ],
         ),
@@ -50,9 +46,9 @@ class TodoFormWidget extends StatelessWidget {
         ),
       );
 
-    
-  Widget buildDesc() => TextFormField(  //allow users to enter data
-        maxLines: 4,
+  Widget buildDesc() => TextFormField(
+        //allow users to enter data
+        maxLines: 3,
         initialValue: desc,
         onChanged: onChangedDescription,
         decoration: const InputDecoration(

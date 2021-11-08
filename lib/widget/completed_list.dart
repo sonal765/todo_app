@@ -4,22 +4,23 @@ import 'package:provider/provider.dart';
 import '../provider/todos.dart';
 import '../widget/todo_widget.dart';
 
-class TodoListWidget extends StatelessWidget {
-  const TodoListWidget({Key? key}) : super(key: key);
+class CompletedListWidget extends StatelessWidget {
+  const CompletedListWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final provider = Provider.of<TodosProvider>(context);
-    final todos = provider.todos;
+    final todos = provider.todoCompleted;
     return todos.isEmpty
         ? const Center(
             // when todo list is empty
             child: Text(
-              'No todos.',
+              'No Completed todos.',
               style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.blueGrey,
-                  fontWeight: FontWeight.bold),
+                fontSize: 20,
+                color: Colors.blueGrey,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           )
         : ListView.separated(

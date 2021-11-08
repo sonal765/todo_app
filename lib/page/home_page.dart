@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../main.dart';
 import '../widget/add_todo_dialog.dart';
 import '../widget/todo_list.dart';
+import '../widget/completed_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final tabs = [
       const TodoListWidget(),
-      Container(),
+      const CompletedListWidget(),
     ];
     return Scaffold(
       appBar: AppBar(
@@ -45,16 +46,19 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: tabs[selectedIndex],
-      floatingActionButton: FloatingActionButton( //represents the primary action of a screen
+      floatingActionButton: FloatingActionButton( 
+        //represents the primary action of a screen
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
         backgroundColor: Colors.tealAccent,
         child: const Icon(Icons.add),
-        onPressed: () => showDialog( //notifies a pop up in the middle of the screen
+        onPressed: () => showDialog( 
+          //notifies a pop up in the middle of the screen
           context: context,
           builder: (BuildContext context) => const AddTodoDialogWidget(),
-          barrierDismissible: true, //which makes dialogs dismissible or not on external click
+          barrierDismissible: true,
+           //which makes dialogs dismissible or not on external click
         ),
       ),
     );
